@@ -19,7 +19,23 @@ function show(){
         document.getElementById("ECE").innerHTML = res.ece;
         document.getElementById("ME").innerHTML = res.me;
         document.getElementById("BT").innerHTML = res.bt;
-        setTimeout(fetch,3000);
+        // var person = {'cse':0, 'ece':1, 'me':2, 'bt':3};
+        // var x = person[resArr[0]];
+            // console.log(x);
+        if(res.cse<=0){
+            document.getElementById("dept").options[0].disabled=true;
+        }
+        if(res.ece<=0){
+            document.getElementById("dept").options[1].disabled=true;
+        }
+        if(res.me<=0){
+            document.getElementById("dept").options[2].disabled=true;
+        }
+        if(res.bt<=0){
+            document.getElementById("dept").options[3].disabled=true;
+        }
+        // document.getElementById("dept").options[x].disabled=true;
+        setTimeout(fetch,100);
     }
     
     
@@ -50,7 +66,17 @@ function update(){
         }
         else if(xhr.readyState == 4 && xhr.status == 400){
             var error = xhr.responseText;
-            document.getElementById("error").innerHTML = error;
+            var resArr = error.split(".");
+
+            
+            // ele = document.getElementById(error);
+            // document.getElementById('error').innerHTML = error;
+            // ele.disabled;
+
+            var person = {'cse':0, 'ece':1, 'me':2, 'bt':3};
+            var x = person[resArr[0]];
+            // console.log(x);
+            document.getElementById("dept").options[x].disabled=true;
             // setTimeout(fetch,3000);
             // document.write('NO SEAT LEFT BOI');
         }
