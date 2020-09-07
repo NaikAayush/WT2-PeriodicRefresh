@@ -10,6 +10,9 @@
 
 
     if(isset($_POST)){
+    $post = $_POST['post'];
+    $dept = $_POST['dept'];
+    
     $json_object = file_get_contents('data/data.json');
     $data = json_decode($json_object, true);
 
