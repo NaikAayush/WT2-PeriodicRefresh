@@ -47,12 +47,13 @@
         </table>
     </div><button class="btn btn-primary" type="button" style="background: rgb(255,255,255);border-radius: 100;margin-bottom: 40px;color: rgb(0,0,0);box-shadow: 0px 0px 5px rgba(0,0,0,0.15);border-width: 0;border-style: solid;">Seat Allocation</button>
     <div>
+    <p id="error"></p>
     <form action='javascript:update()'>
         <select id="dept" name="dept" required="" style="box-shadow: 0px 0px 5px rgba(0,0,0,0.15);padding: 0;padding-right: 0;font-size: 15px;border-radius: 227;width: 132px;height: 35px;border-width: -29px;border-color: rgba(255,255,255,0);margin-bottom: 10px;">
-        <option value="cse">CSE</option>
-        <option value="ece">ECE</option>
-        <option value="me">ME</option>
-        <option value="bt">BT</option>
+        <option id="cse" value="cse">CSE</option>
+        <option id="ece" value="ece">ECE</option>
+        <option id="me" value="me">ME</option>
+        <option id="bt" value="bt">BT</option>
     </select>
     </div>
     <button class="btn" type="submit" style="box-shadow: 0px 0px 5px rgba(0,0,0,0.15);">Submit</button>

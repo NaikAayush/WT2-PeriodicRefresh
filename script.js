@@ -21,6 +21,8 @@ function show(){
         document.getElementById("BT").innerHTML = res.bt;
         setTimeout(fetch,3000);
     }
+    
+    
 
 }
 function backoff(){
@@ -41,12 +43,20 @@ function update(){
     var xhr = new XMLHttpRequest();
     var url = "index.php";
     xhr.open("POST", url, true); 
-
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if( xhr.readyState==4 && xhr.status==200 ){
             console.log( xhr.responseText );
         }
+        else if(xhr.readyState == 4 && xhr.status == 400){
+            var error = xhr.responseText;
+            document.getElementById("error").innerHTML = error;
+            // setTimeout(fetch,3000);
+            // document.write('NO SEAT LEFT BOI');
+        }
     };
     
     xhr.send(str);
+
+    
 }
