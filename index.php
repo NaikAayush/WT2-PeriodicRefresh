@@ -9,7 +9,7 @@
 
 
 
-    if($post='post'){
+    if(isset($_POST)){
     $json_object = file_get_contents('data/data.json');
     $data = json_decode($json_object, true);
 
@@ -17,8 +17,6 @@
 
     $json_object = json_encode($data);
     file_put_contents('data/data.json', $json_object);
-    
-    $arr = json_decode(file_get_contents('data/data.json'), true);
     }
 
     $data = file_get_contents("data/data.json");
