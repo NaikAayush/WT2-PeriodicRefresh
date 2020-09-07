@@ -31,7 +31,22 @@ function backoff(){
 }
 
 function update(){
-    console.log('hello');
+    // console.log('hello');
     var branch = document.getElementById("dept").value;
-    console.log(branch);
+    // console.log(branch);
+
+    var str = "dept="+branch+"&post=post";
+    // console.log(str);
+
+    var xhr = new XMLHttpRequest();
+    var url = "index.php";
+    xhr.open("POST", url, true); 
+
+    xhr.onreadystatechange = function() {
+        if( xhr.readyState==4 && xhr.status==200 ){
+            console.log( xhr.responseText );
+        }
+    };
+    
+    xhr.send(str);
 }
